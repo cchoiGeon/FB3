@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+:root {
+    --mainColor: #7D67FF;
+    --bgPrimary:#fff;
+    --bgSecondary: #EAE9E9;
+    --bgTertiary: #EEEEEE;
+    --primaryColor: #111;
+    --secondaryColor: #5F5F5F;
+    --tertiaryColor: #898989;
+    --strokeColor: #E3E3E3;
+    --white: #F2F2F2;
+    --main-disabled:  rgba(125, 103, 255, 0.20);
+}
+html{
+    height: 100%;
+}
+
+body {
+    width: 420px;
+    height: 100%;
+    /* max-width: 375px; */
+    background-color: var(--bgPrimary);
+    margin: 0 auto;
+
+}
+.body{
+    width: 420px;
+    height: 100%;
+    min-height: 100vh;
+    background: var(--bgPrimary);
+}
+
+section{
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+#logo{
+    margin-top:266px;
+    text-align: center;
+}
+
+.main-context{
+    margin-top: 20px;
+    text-align: center;
+    color: var(--primaryColor);
+}
+#main-text {
+    font-size: 32px;
+    font-weight: 700;
+}
+#sub-text {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
+
+#introLoginButton {
+    bottom: 40px;
+    margin-top: 190px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 100px;
+    background: var(--main-disabled, rgba(125, 103, 255, 0.20));
+    cursor: pointer;
+
+}
+
+#introLoginButton a{
+    text-decoration: none;
+    color: var(--mainColor);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#introSignupButton {
+    margin-top: 10px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 100px;
+    background: var(--mainColor);
+    cursor: pointer;
+}
+#introSignupButton a{
+    color: var(--white);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+}
+
+footer a{
+    color: var(--secondaryColor);
+    font-size: 10px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-right: 12px;
+}
+footer a:last-child{
+    margin-right: 0px;
+}
+footer svg{
+    margin-right: 12px;
+}

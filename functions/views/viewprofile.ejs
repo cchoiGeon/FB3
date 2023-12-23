@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공팅</title>
+    <link rel="stylesheet" href="css/viewprofile.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+    <script type="module" src="js/viewprofile.js"></script>
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a onClick="history.go(-1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8413 12.8418L15.6827 22.0004L24.8413 31.1591" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>               
+                </a>
+            </div>
+            <p id="title"></p>
+            <a id="modifyPage" href="/myprofilesetting">수정</a>
+        </header>
+        
+        <section>
+            <div id="info1">
+                <div id="avatar">
+
+                    <img id="charss">
+                </div>
+                <div id="basic">
+                    <div class="item">
+                        <p id="item-index">이름</p>
+                        <p id="item-value"><span id="name"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">성별</p>
+                        <p id="item-value"><span id="gender"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">나이</p>
+                        <p id="item-value"><span id="age"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">학과</p>
+                        <p id="item-value"><span id="major"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index"><span id="socialmediaidtype"></span></p>
+                        <p id="item-value"><span id="socialmediaid"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">흡연여부</p>
+                        <p id="item-value"><span id="smoke"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">MBTI</p>
+                        <p id="item-value"><span id="mbti"></span></p>
+                    </div>
+                    <div class="item">
+                        <p id="item-index">한줄소개</p>
+                        <p id="item-value"><span id="introduction"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="info2">
+                <div id="hobbyBox">
+                    <p>취미</p>
+                    <div id="hobbies">
+                    </div>
+                </div>
+                <div id="line"></div>
+                <div id="traitBox">
+                    <p>특성</p>
+                    <div id="traits">
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <footer>
+        </footer>      
+    </div>
+    <script type="text/javascript">
+        (function(w, d, a){
+            w.__beusablerumclient__ = {
+                load : function(src){
+                    var b = d.createElement("script");
+                    b.src = src; b.async=true; b.type = "text/javascript";
+                    d.getElementsByTagName("head")[0].appendChild(b);
+                }
+            };w.__beusablerumclient__.load(a + "?url=" + encodeURIComponent(d.URL));
+        })(window, document, "//rum.beusable.net/load/b231115e233422u588");
+        </script>
+        
+        
+        <script type="text/javascript">
+        (function(w, d, a){
+            w.__beusablerumclient__ = {
+                load : function(src){
+                    var b = d.createElement("script");
+                    b.src = src; b.async=true; b.type = "text/javascript";
+                    d.getElementsByTagName("head")[0].appendChild(b);
+                }
+            };w.__beusablerumclient__.load(a + "?url=" + encodeURIComponent(d.URL));
+        })(window, document, "//rum.beusable.net/load/b231115e233422u588");
+        </script>
+</body>
+</html>

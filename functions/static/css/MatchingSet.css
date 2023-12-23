@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --mainColor: #7D67FF;
+  --bgPrimary:#fff;
+  --bgSecondary: #EAE9E9;
+  --bgTertiary: #EEEEEE;
+  --primaryColor: #111;
+  --secondaryColor: #5F5F5F;
+  --tertiaryColor: #898989;
+  --strokeColor: #E3E3E3;
+  --white: #F2F2F2;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Noto Sans KR;
+}
+
+body {
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 420px;
+  margin: 0 auto;
+}
+
+.body{
+    width: 420px;
+    height: 100%;
+    /* background-color: #fcfcfc; */
+}
+
+.back-button {
+  display: none;
+}
+
+#back-icon {
+  display: flex;
+  padding: 0px 10px;
+  align-items: flex-start;
+  align-self: stretch;
+  margin-top: 44px;
+}
+
+#back-icon p {
+  color: var(--primaryColor);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 44px; /* 275% */
+  margin-top: 0px;
+}
+
+#x-botton {
+  margin-top: 3px;
+  margin-left: auto;
+}
+
+
+.title {
+    margin-left: 20px;
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+#title-text {
+    color:#111;
+    font-family: Noto Sans KR;
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#sub-text {
+    color: #898989;
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 0px;
+
+}
+
+#stepbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+#stepbar svg{
+  margin-top: 0;
+}
+.profile-dropdown {
+    display: block;
+    margin-bottom: 203px;
+    border-radius: 100px;
+}
+
+select {
+    width:380px;
+    height: 48px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #EDEDEF;
+    color: #5f5f5f;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 500;
+    background: url('../newLogo/Arrow\ -\ Down\ 2.png') no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance : none;
+    margin-bottom: 10px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+#div-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  display: block;
+  position: fixed;
+  bottom: 40px;
+  width: 380px;
+  height: 50px;
+  background-color: var(--mainColor);
+  color: #fff;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 8px 30px;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+input[type=text] {
+	width: 100%;
+	height: 48px;
+	color: #5F5F5F;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 16px;
+  border-radius: 10px;
+  border: 1px solid #EDEDEF;
+  color: #5f5f5f;
+}
+
+#myprofileSetting{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.title {
+    margin-left: 20px;
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+#title-text {
+    color:#111;
+    font-family: Noto Sans KR;
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+#sub-text {
+    color: #898989;
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 0px;
+
+}
+
+.profile-dropdown {
+    /* margin-top: 64px; */
+    /* text-align: center; */
+    display: block;
+    /* width: 335px; */
+    margin-bottom: 203px;
+    border-radius: 100px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+input[type=text] {
+	width: 380px;
+	height: 48px;
+	color: #5F5F5F;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 16px;
+  border-radius: 10px;
+  border: 1px solid #EDEDEF;
+  color: #5f5f5f;
+}
+
+#myprofileSetting{
+  text-align: center;
+}
+
+.sex-checkbox input[type="checkbox"], .mbti-1 input[type="checkbox"], .mbti-2 input[type="checkbox"], .mbti-3 input[type="checkbox"], .mbti-4 input[type="checkbox"], .hobbyContainer input[type="checkbox"], .traitContainer input[type="checkbox"] {
+  display: none;
+}
+
+.mbti-group label {
+  display: flex;
+  width: calc(50% - 50px); /* 라벨 2개씩 한 줄에 배치, 여백을 고려한 값 */
+  height: 90px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--strokeColor);
+  background: var(--bgPrimary);
+  cursor: pointer;
+}
+
+.mbti-group .mbti-1,.mbti-group .mbti-2,.mbti-group .mbti-3,.mbti-group .mbti-4{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.mbti-group input[type="checkbox"]:checked + label,
+.mbti-group input[type="checkbox"]:checked + label .mbti-title,
+.mbti-group input[type="checkbox"]:checked + label .mbti-sub{
+  border-color: var(--mainColor);
+  color: var(--mainColor);
+  transition: all ease 1s 0s;
+}
+
+.sex-group .sex-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 14px; 
+}
+
+.terms {
+  vertical-align: middle; /* 조절이 필요한 경우 값을 조정 */
+}
+
+.terms label {
+  display: inline-block; /* 레이블이 block 요소로 취급되도록 설정 */
+  line-height: inherit; /* 부모의 line-height 값을 상속 */
+}
+
+
+.sex-checkbox label {
+  display: flex;
+  width: calc(50% - 25px); /* 라벨 2개씩 한 줄에 배치, 여백을 고려한 값 */
+  height: 100px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--strokeColor);
+  background: var(--bg-primary);
+  cursor: pointer;
+  gap: 8px;
+}
+  
+.sex-group input[type="checkbox"]:checked + label,
+.sex-group input[type="checkbox"]:checked + label .sex-title{    border-color: var(--mainColor);
+    color: var(--mainColor);
+    transition: all ease 1s 0s;
+}
+
+.mbti-title {
+  color: var(--tertiaryColor);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 19px 0 4px 0;
+}
+
+.sex-title {
+  color: var(--tertiaryColor);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mbti-sub {
+  color: var(--tertiaryColor);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+
+.terms {
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  margin-left: 20px;
+}
+
+.terms span{
+  color: var(--secondaryColor);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px; /* 116.667% */
+  text-align: center;
+  margin-left: 6px;
+}
+
+.terms a{
+  color: #A1A1A1;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  float: right;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+.imageBody {
+  margin: 0 61px 0 81px;
+  width: 270px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  max-height: calc(65vh - 120px); /* 뷰포트 높이를 기준으로 계산 */
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-grow: 1; /* 부모 컨테이너에 맞추기 위해 추가 */
+}
+
+.imageBody::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.imageBody::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.imageBody div{
+  width: calc(50% - 10px); /* 이미지 너비를 2개씩 나눈 값에서 간격을 뺀 크기로 설정 */
+  margin-bottom: 20px; /* 이미지 아래 간격 설정 */
+}
+
+/* .checkbox-control input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+.checkbox-control input + span{
+  display: inline-block;
+  text-align: center;
+  width: 123.52px; 
+  height: 120px; 
+  border: 1px solid var(--strokeColor);
+  border-radius: 50%;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.checkbox-control input:checked + span {
+  border-color: var(--mainColor);
+  transition: all ease 0.5s 0s;
+}
+.checkbox-control:nth-child(1){
+  background: url(avatar_svg/1.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(2){
+  background: url(avatar_svg/2.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(3){
+  background: url(avatar_svg/3.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(4){
+  background: url(avatar_svg/4.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(5){
+  background: url(avatar_svg/5.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(6){
+  background: url(avatar_svg/6.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(7){
+  background: url(avatar_svg/7.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(8){
+  background: url(avatar_svg/8.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(9){
+  background: url(avatar_svg/9.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(10){
+  background: url(avatar_svg/10.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(11){
+  background: url(avatar_svg/11.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(12){
+  background: url(avatar_svg/12.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(13){
+  background: url(avatar_svg/13.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+.checkbox-control:nth-child(14){
+  background: url(avatar_svg/14.svg) no-repeat;
+  background-size: 82.35px 77.6px;
+  background-position: center center;
+}
+
+.hobbyContainer {
+  width: 420px;
+  padding: 0 20px 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  max-height: calc(65vh - 120px); /* 뷰포트 높이를 기준으로 계산 */
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+.hobbyContainer::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.hobbyContainer::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.hobbyContainer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.hobbyContainer div input label {
+  display: none;
+}
+.hobbyContainer label span {
+  display: flex;
+  height: 30px;
+  padding: 6.5px 15px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid var(--stroke, #E3E3E3);
+  background: var(--bg-primary, #FFF);
+  cursor: pointer;
+  color: var(--secondaryColor);
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 10px;
+}
+
+.hobbyContainer div input:checked ~ span {
+  background: var(--mainColor);
+  color: var(--white);
+  border: none;
+  transition: all ease 1s 0s;
+}
+
+.traitContainer {
+  width: 420px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  max-height: calc(65vh - 160px); /* 뷰포트 높이를 기준으로 계산 */
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+.traitContainer::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.traitContainer::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.traitContainer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.traitContainer div input label {
+  display: none;
+}
+.traitContainer label span {
+  display: flex;
+  height: 30px;
+  padding: 6.5px 15px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid var(--stroke, #E3E3E3);
+  background: var(--bg-primary, #FFF);
+  cursor: pointer;
+  color: var(--secondaryColor);
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 10px;
+}
+
+.traitContainer div input:checked ~ span {
+  background: var(--mainColor);
+  color: var(--white);
+  border: none;
+  transition: all ease 1s 0s;
+}
+.check {
+  display: flex;
+  width: 420px;
+  padding: 0px 0px 0px 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.check-content {
+  display: flex;
+  flex-direction: row; /* 수정된 부분 */
+  align-items: center; /* 추가된 부분 */
+  gap: 10px; /* SVG와 텍스트 사이 간격 조정을 위해 추가된 부분 */
+}
+
+#check-title {
+  color: var(--primaryColor);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 60px;
+  margin-left: 30px;
+}
+
+#check-text {
+  color: var(--secondaryColor);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+}
+#participant {
+  color: var(--secondaryColor);
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+#name {
+  margin-bottom: 10px;
+}

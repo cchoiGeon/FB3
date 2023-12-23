@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a onClick="history.go(-1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8414 12.8414L15.6827 22L24.8414 31.1587" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <section>
+            <p id="title">회원가입</p>
+            <p id="title-sub">* 정확하게 입력해주세요. 이름과 학번은 수정이 불가해요.<br> * 회원가입 버튼을 누르신 후 잠시동안 기다려주세요.</p>
+            <form>         
+                <div id="name">
+                    <p class="title-box">이름</p>
+                    <input type="text" placeholder="이름을 입력하세요." id="subname" name="name" required>
+                </div>
+                <div id="studentId">
+                    <p class="title-box">학번</p>
+                    <input type="text" placeholder="학번을 입력하세요." id="substudentnum" name="studentnum" required>
+                </div>
+                <div id="studentId">
+                    <p class="title-box">이메일</p>
+                    <input type="text" placeholder="이메일을 입력하세요." id="subemail" required>
+                </div>
+                <div id="password">
+                    <p class="title-box">비밀번호</p>
+                    <input type="password" name="password" id="subpassword" placeholder="비밀번호를 입력하세요." style="margin-bottom: 6px;" required>
+                    <input type="password" id="checkpassword" name="checkpassword" placeholder="다시 비밀번호를 입력하세요." required>
+                    
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="termsCheckbox1" required>
+                    <label for="termsCheckbox1"><span>[필수] 서비스 이용 약관에 동의</span></label>
+                    <a href="https://tourmaline-mandevilla-a25.notion.site/4db6423a996348afa753ab16a71761ec" target="_blank">보기</a>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="termsCheckbox2" required> 
+                    <label for="termsCheckbox2"><span>[필수] 개인정보 처리방침에 동의</span></label>
+                    <a href="https://wiggly-tadpole-8d1.notion.site/5101b7468447413d9e2e8ca38ed0f629?v=f9cb4fa9f0e04c869805ad8fc741b0e1&pvs=4" target="_blank">보기</a>
+                </div>
+                <div id="signup-button">
+                    <button id="subbutton" type="submit">회원가입하기</button >
+                </div>
+            </form>
+        </section>
+    </div>
+    <script type="module">
+        var firebaseConfig = {
+            apiKey: "AIzaSyAXS4QiMmWEZWCAypO3BEL1EEFrgcobcIA",
+            authDomain: "gongting-bbe91.firebaseapp.com",
+            projectId: "gongting-bbe91",
+            storageBucket: "gongting-bbe91.appspot.com",
+            messagingSenderId: "463474625177",
+            appId: "1:463474625177:web:5992692674c602a086c608",
+            measurementId: "G-VT3NQ3EGT6"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+        document
+          .getElementById("subbutton")
+          .addEventListener("click", (event) => {
+            event.preventDefault();
+            const email = document.getElementById('subemail').value
+            const password = document.getElementById('subpassword').value
+
+            firebase
+              .auth()
+              .createUserWithEmailAndPassword(email, password)
+              .then(({ user }) => {
+                return user.getIdToken().then((idToken) => {
+                  return fetch("/gongting-bbe91/us-central1/api/login", {
+                    method: "POST",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                      "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                    },
+                    body: JSON.stringify({ idToken }),
+                  });
+                });
+              })
+              .then(() => {
+                return firebase.auth().signOut();
+              })
+              .then(() => {
+                window.location.assign("/gongting-bbe91/us-central1/api/");
+              });
+            return false;
+          });
+      </script>
+</body>
+</html>
