@@ -4,8 +4,8 @@ const admin = require('firebase-admin');
 const { isloggedIn } = require('../middlewares');
 const db = admin.firestore();
 const axios = require('axios');
-
-router.get('/',async (req,res)=>{
+const qs = require('qs')
+router.get('/',isloggedIn,async (req,res)=>{
     return res.render('home')
 })  
 router.get('/intro',async (req,res)=>{
@@ -52,31 +52,40 @@ router.post('/login',async(req,res)=>{
             }
         );
 })
-router.get("/logout", (req, res) => {
+router.get("/logout", async (req, res) => {
+    const a = await axios.post('https://kapi.kakao.com/v1/user/logout', {}, {
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            'Authorization': 'Bearer ' + req.cookies.kakao
+        }
+    });
     res.clearCookie("session");
+    res.clearCookie("kakao");
     res.redirect("/gongting-bbe91/us-central1/api/login");
 });
 router.get('/getToken', async (req, res) => {
-const code = req.query.code;
-// Kakao OAuth Token 요청을 위한 데이터
-const postData = new URLSearchParams();
-postData.append('grant_type', 'authorization_code');
-postData.append('client_id', '123'); // 여기에 실제 클라이언트 ID를 넣어야 합니다.
-postData.append('redirect_uri', '123'); // 여기에 실제 리다이렉트 URI를 넣어야 합니다.
-postData.append('code', code ); // 여기에 실제 인증 코드를 넣어야 합니다.
-
-// Kakao OAuth Token 요청
-axios.post('https://kauth.kakao.com/oauth/token', postData, {
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    },
-})
-.then(function (response) {
-    console.log('Response:', response.data);
-})
-.catch(function (error) {
-    // 요청 실패 시 오류를 처리합니다.
-    console.error('Error:', error);
-});
+    const token = await axios({
+        method: "POST",
+        url: "https://kauth.kakao.com/oauth/token",
+        headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        },
+        data: qs.stringify({
+        grant_type: "authorization_code",
+        client_id: 'd9e8d28a6282ee66ee55843d499ce946',
+        redirectUri: '/gongting-bbe91/us-central1/api/',
+        code: req.query.code,
+        }),
+    });
+    const authInfo = await axios.post('https://kapi.kakao.com/v2/user/me', {}, {
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            'Authorization': 'Bearer ' + token.data.access_token
+        }
+    });
+    const expiresIn = 60 * 60 * 24 * 5 * 1000;
+    const options = { maxAge: expiresIn, httpOnly: true };
+    res.cookie("kakao", token.data.access_token , options);
+    return res.redirect('/gongting-bbe91/us-central1/api/')
 });
 module.exports = router;
