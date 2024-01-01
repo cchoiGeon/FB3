@@ -29,7 +29,7 @@ router.get('/myprofile',isloggedIn,async (req,res)=>{
 router.get('/matchingresult-love',isloggedIn,async (req,res)=>{
     return res.render('matchingresultlove')
 })
-router.get('/verify',async (req,res)=>{
+router.get('/verify',isloggedIn,async (req,res)=>{
     return res.render('verify')
 })  
 router.post('/login',async(req,res)=>{
@@ -53,39 +53,39 @@ router.post('/login',async(req,res)=>{
         );
 })
 router.get("/logout", async (req, res) => {
-    const a = await axios.post('https://kapi.kakao.com/v1/user/logout', {}, {
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            'Authorization': 'Bearer ' + req.cookies.kakao
-        }
-    });
+    // const a = await axios.post('https://kapi.kakao.com/v1/user/logout', {}, {
+    //     headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded",
+    //         'Authorization': 'Bearer ' + req.cookies.kakao
+    //     }
+    // });
     res.clearCookie("session");
-    res.clearCookie("kakao");
+    // res.clearCookie("kakao");
     res.redirect("/gongting-bbe91/us-central1/api/login");
 });
-router.get('/getToken', async (req, res) => {
-    const token = await axios({
-        method: "POST",
-        url: "https://kauth.kakao.com/oauth/token",
-        headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        },
-        data: qs.stringify({
-        grant_type: "authorization_code",
-        client_id: 'd9e8d28a6282ee66ee55843d499ce946',
-        redirectUri: '/gongting-bbe91/us-central1/api/',
-        code: req.query.code,
-        }),
-    });
-    const authInfo = await axios.post('https://kapi.kakao.com/v2/user/me', {}, {
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            'Authorization': 'Bearer ' + token.data.access_token
-        }
-    });
-    const expiresIn = 60 * 60 * 24 * 5 * 1000;
-    const options = { maxAge: expiresIn, httpOnly: true };
-    res.cookie("kakao", token.data.access_token , options);
-    return res.redirect('/gongting-bbe91/us-central1/api/')
-});
+// router.get('/getToken', async (req, res) => {
+//     const token = await axios({
+//         method: "POST",
+//         url: "https://kauth.kakao.com/oauth/token",
+//         headers: {
+//         "content-type": "application/x-www-form-urlencoded",
+//         },
+//         data: qs.stringify({
+//         grant_type: "authorization_code",
+//         client_id: 'd9e8d28a6282ee66ee55843d499ce946',
+//         redirectUri: '/gongting-bbe91/us-central1/api/',
+//         code: req.query.code,
+//         }),
+//     });
+//     const authInfo = await axios.post('https://kapi.kakao.com/v2/user/me', {}, {
+//         headers: {
+//             "Content-Type": "application/x-www-form-urlencoded",
+//             'Authorization': 'Bearer ' + token.data.access_token
+//         }
+//     });
+//     const expiresIn = 60 * 60 * 24 * 5 * 1000;
+//     const options = { maxAge: expiresIn, httpOnly: true };
+//     res.cookie("kakao", token.data.access_token , options);
+//     return res.redirect('/gongting-bbe91/us-central1/api/')
+// });
 module.exports = router;
