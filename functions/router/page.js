@@ -5,6 +5,7 @@ const { isloggedIn } = require('../middlewares');
 const db = admin.firestore();
 const axios = require('axios');
 const qs = require('qs')
+
 router.get('/',isloggedIn,async (req,res)=>{
     return res.render('home')
 })  
@@ -61,7 +62,7 @@ router.get("/logout", async (req, res) => {
     // });
     res.clearCookie("session");
     // res.clearCookie("kakao");
-    res.redirect("/gongting-bbe91/us-central1/api/login");
+    res.redirect("/api/login");
 });
 // router.get('/getToken', async (req, res) => {
 //     const token = await axios({
@@ -73,7 +74,7 @@ router.get("/logout", async (req, res) => {
 //         data: qs.stringify({
 //         grant_type: "authorization_code",
 //         client_id: 'd9e8d28a6282ee66ee55843d499ce946',
-//         redirectUri: '/gongting-bbe91/us-central1/api/',
+//         redirectUri: '/',
 //         code: req.query.code,
 //         }),
 //     });
@@ -86,6 +87,6 @@ router.get("/logout", async (req, res) => {
 //     const expiresIn = 60 * 60 * 24 * 5 * 1000;
 //     const options = { maxAge: expiresIn, httpOnly: true };
 //     res.cookie("kakao", token.data.access_token , options);
-//     return res.redirect('/gongting-bbe91/us-central1/api/')
+//     return res.redirect('/')
 // });
 module.exports = router;

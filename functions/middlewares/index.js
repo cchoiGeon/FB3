@@ -9,11 +9,11 @@ exports.isloggedIn = async (req,res,next) => {
             next()
         })
         .catch((error) => {
-            return res.redirect("/gongting-bbe91/us-central1/api/login");
+            return res.redirect("/api/login");
         });
     // const kakaologin = req.cookies.kakao || undefined;
     // if(!kakaologin){
-    //     return res.redirect("/gongting-bbe91/us-central1/api/login");
+    //     return res.redirect("/login");
     // }
     // try{
     //     const authInfo = await axios.post('https://kapi.kakao.com/v2/user/me', {}, {
@@ -33,10 +33,10 @@ exports.isloggedIn = async (req,res,next) => {
     //                 next()
     //             })
     //             .catch((error) => {
-    //                 return res.redirect("/gongting-bbe91/us-central1/api/login");
+    //                 return res.redirect("/login");
     //             });
     //     }
     // }catch(err){
-    //     return res.redirect("/gongting-bbe91/us-central1/api/login");
+    //     return res.redirect("/login");
     // }
 }
